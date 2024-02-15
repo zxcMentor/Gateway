@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    build: ./geteway
+    ports:
+      - "8080:8080"
+    networks:
+      - mynw
+  mcs1:
+    build: ./mcserv1
+
+    networks:
+      - mynw
+  mcs2:
+    build: ./mcserv2
+
+    networks:
+      - mynw
+networks:
+  mynw:
+    external: true
